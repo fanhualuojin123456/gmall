@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace:表示接口的全路径-->
+
+<mapper namespace="com.ping.gmall.manage.mapper.SkuSaleAttrValueMapper">
+    <resultMap id="SkuSaleAttrValueMap" type="com.ping.gmall.bean.SkuSaleAttrValue" autoMapping="true">
+        <id property="id" column="id"></id>
+
+    </resultMap>
+
+    <select id="getSkuSaleAttrValueListBySpu" resultMap="SkuSaleAttrValueMap" >
+        SELECT * FROM sku_sale_attr_value ssav , sku_info si WHERE ssav.sku_id = si.id AND si.spu_id=#{0}
+
+    </select>
+</mapper>
